@@ -17,3 +17,17 @@ make install
 
 I've already made HTML documentation from tne embedded POD. It's in the doc/
 directory.
+
+What's new?
+
+Version 0.07
+------------
+
+* Added support for Opera, another browser claiming to be Mozilla.
+* Experimenting with some different regexp techniques.  They seem to be
+  working out, I think I'll convert the rest to this style later.
+
+Version 0.06
+------------
+
+It's all new!  This was the first public release.

@@ -3,7 +3,7 @@ package CGI::MozSniff;
 # This needs work, especially on the regexps.
 # Copyleft 1997, Jason Costomiris <jcostom@sjis.com>
 
-$CGI::MozSniff::VERSION = '0.06';
+$CGI::MozSniff::VERSION = '0.07';
 
 require 5.003;
 require Exporter;
@@ -47,7 +47,22 @@ sub sniff {
 			$navtype =~ tr/A-Z/a-z/;
 			return("$navtype\_$ver");
 		} elsif ($ver >= 3) {
-			return("navigator\_$ver");
+			if ($ua =~ /Opera/) {
+				my $navtype = $ua;
+				$navtype =~ s/.*\(//;
+				$navtype =~ s/\).*//;
+				my @nav = split(/;/, $navtype);
+				for ($i = 0 ; $i<=$#nav ; $i++){
+					$nav[$i] =~ s/^\s//;
+					$nav[$i] =~ s/\s$//;
+				}
+				$_ = $nav[1];
+				/Opera\//;
+				my $opera = $';
+				return("opera\_$opera");
+			} else {
+				return("navigator\_$ver");
+			}
 		} elsif ($ver >= 2) {
 			if ($ua =~ /MSIE/) {
 				my $navtype = $ua;
@@ -65,9 +80,8 @@ sub sniff {
 				} else {
 					return("msie\_$msie");
 				}
-				
 			} else {
-				return("navigator\_$ver");
+				return("navigator\_$ver $ua");
 			}
 		}
 	} else {
@@ -137,6 +151,9 @@ msie_B<$ver> - Microsoft Internet Explorer v.B<$ver>
 
 =item *
 msie_B<$ver>_AOL - Microsoft Internet Explorer v.B<$ver> (AOL)
+
+=item *
+opera_B<$ver> - Opera, a pretty nice browser, as far as Windoze browsers go...
 
 =item *
 other - Some other browser
