@@ -1,0 +1,83 @@
+    <HTML> 
+	<HEAD> 
+	    <TITLE>B<MozSniff> - Sniff out various versions of browsers claming to be "Mozilla".
+
+</TITLE> 
+	</HEAD>
+
+	<BODY>
+
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#NAME">NAME</A>
+	<LI><A HREF="#SYNOPSIS">SYNOPSIS</A>
+	<LI><A HREF="#DESCRIPTION">DESCRIPTION</A>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="NAME">NAME
+
+</A></H1>
+<STRONG>MozSniff</STRONG> - Sniff out various versions of browsers claming to be ``Mozilla''.
+
+
+<P>
+
+<P>
+<HR>
+<H1><A NAME="SYNOPSIS">SYNOPSIS
+
+</A></H1>
+I got tired of redoing this several times, or using CGI::user_agent(), so I
+wrote my own.
+
+
+<P>
+
+<P>
+<HR>
+<H1><A NAME="DESCRIPTION">DESCRIPTION
+
+</A></H1>
+You should be able, I hope, to do something like:
+
+
+<P>
+
+<PRE>        use CGI::MozSniff;
+        my $foo = new CGI::MozSniff;
+        my $bar = $foo-&gt;sniff;
+</PRE>
+
+<P>
+
+Values for $foo-&gt;sniff are:
+
+
+<P>
+
+<UL>
+<LI><STRONG><A NAME="item_navigator_">navigator_$ver - Netscape Navigator v.$ver
+
+</A></STRONG>
+<LI><STRONG><A NAME="item_communicator_">communicator_$ver - Netscape Communicator v.$ver
+
+</A></STRONG>
+<LI><STRONG><A NAME="item_msie_">msie_$ver - Microsoft Internet Explorer v.$ver
+
+</A></STRONG>
+<LI><STRONG><A NAME="item_msie_">msie_$ver_AOL - Microsoft Internet Explorer v.$ver (AOL)
+
+</A></STRONG>
+<LI><STRONG><A NAME="item_other">other - Some other browser
+
+</A></STRONG>
+</UL>
+</DL>
+    </BODY>
+
+    </HTML>

@@ -1,0 +1,19 @@
+This is the beginning of a module for use under CGI:: to sniff out what
+browser someone's really using, despite the fact that it claims to be
+"Mozilla" (can you say Micro$oft?).
+
+If you can provide me with User Agent values that call themselves 
+"Mozilla", I'd appreciate it, and I'll add it.  Right now, I've got:
+
+Any real version of Netscape Navigator
+Any version of Netscape Communicator
+Any version of MS Internet Explorer 2.0 or higher.
+
+To install this module, you need to:
+
+perl Makefile.PL
+make
+make install
+
+I've already made HTML documentation from tne embedded POD. It's in the doc/
+directory.
